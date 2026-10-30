@@ -33,6 +33,10 @@ Evaluation metrics include:
 - F1-score
 - Confusion Matrix
 
+## Dashboard Preview
+
+[AI Review Sentiment Analyzer Dashboard](screenshots/dashboard1.png)
+
 ## Installation
 
 1. Clone the repository:
