@@ -8,7 +8,7 @@ from tqdm.auto import tqdm
 
 MODEL_NAME = "distilbert/distilbert-base-uncased"
 
-print("Loading review dataset...")
+print("Loading review dataset..")
 
 train_stream = load_dataset(
     "fancyzhx/amazon_polarity",
@@ -35,7 +35,7 @@ test_data = Dataset.from_list(test_samples)
 
 print("Dataset loaded!")
 
-print("Loading tokenizer...")
+print("Loading tokenizer..")
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
@@ -79,7 +79,7 @@ test_loader = DataLoader(
     collate_fn=collator
 )
 
-print("Loading model...")
+print("Loading model..")
 
 model = AutoModelForSequenceClassification.from_pretrained(
     MODEL_NAME,
@@ -96,9 +96,9 @@ print(f"Training on: {device}")
 
 optimizer = AdamW(model.parameters(), lr=2e-5)
 
-epochs = 1
+epochs = 10
 
-print("Starting training...")
+print("Starting training..")
 
 model.train()
 
@@ -133,7 +133,7 @@ for epoch in range(epochs):
 
 
 
-print("Evaluating model...")
+print("Evaluating model..")
 
 model.eval()
 
@@ -177,7 +177,7 @@ print("\nConfusion Matrix:")
 
 print(confusion_matrix(all_labels, all_predictions, labels=[0, 1]))
 
-print("Saving trained model...")
+print("Saving trained model..")
 
 model.save_pretrained("sentiment_model")
 tokenizer.save_pretrained("sentiment_model")
