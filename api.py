@@ -7,7 +7,7 @@ from transformers import pipeline
 app = FastAPI(title="AI Review Sentiment Analyzer")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-print("Loading sentiment model...")
+print("Loading sentiment model..")
 
 analyzer = pipeline(
     "sentiment-analysis",
